@@ -24,14 +24,19 @@ export default function Car() {
       onUpdate: (self) => {
         // self.getVelocity() returns scroll velocity in pixels per second
         const vel = Math.abs(self.getVelocity());
+        const progress = self.progress;
         
         // When velocity is low (car stopped), opacity is 0. 
         // When velocity is high (car moving), opacity ramps up to 1.
         let targetOpacity = 0;
-        if (vel > 300) {
-          targetOpacity = 1;
-        } else if (vel > 50) {
-          targetOpacity = (vel - 50) / 250;
+        
+        // Prevent smoke when overscrolling at the very start or end
+        if (progress > 0 && progress < 1) {
+          if (vel > 300) {
+            targetOpacity = 1;
+          } else if (vel > 50) {
+            targetOpacity = (vel - 50) / 250;
+          }
         }
 
         // Animate opacity smoothly to handle sudden stops (dissipating smoke)

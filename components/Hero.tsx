@@ -83,7 +83,7 @@ export default function Hero() {
               {/* Card 1: 58% (Lime Neon) */}
               <div
                 ref={c1Ref}
-                style={{ filter: "url(#sketchy-ui)" }}
+                style={{ filter: "url(#sketchy-ui)", opacity: 0, transform: "translateY(30px)" }}
                 className="w-56 sm:w-72 md:w-80 p-5 sm:p-6 rounded-sm bg-[#d7fc44] shadow-sm mr-12 sm:mr-20 mb-4 -rotate-2 mt-6"
               >
                 <div className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight leading-none">
@@ -97,7 +97,7 @@ export default function Hero() {
               {/* Card 2: 27% (Dark Charcoal) */}
               <div
                 ref={c2Ref}
-                style={{ filter: "url(#sketchy-ui)" }}
+                style={{ filter: "url(#sketchy-ui)", opacity: 0, transform: "translateY(30px)" }}
                 className="w-56 sm:w-72 md:w-80 p-5 sm:p-6 rounded-sm bg-[#26282c] text-white shadow-sm ml-2 mt-12 rotate-3"
               >
                 <div className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-none">
@@ -116,6 +116,7 @@ export default function Hero() {
           <div
             ref={roadStripRef}
             className="relative w-full h-36 sm:h-44 md:h-52 overflow-hidden select-none [--car-w:310px] sm:[--car-w:390px] md:[--car-w:470px]"
+            style={{ "--p": 0 } as any}
           >
             {/* LAYER 1 (AHEAD OF CAR): Minimalist Dark Highway Road */}
             <div className="absolute inset-0 z-0">
@@ -140,7 +141,7 @@ export default function Hero() {
 
             {/* LAYER 3: Car Driving from Left (0%) to Right End + 90% off-screen */}
             <div className="absolute inset-0 z-20 flex items-center pointer-events-none">
-              <div ref={carWrapperRef} className="absolute flex items-center h-full w-[var(--car-w)]">
+              <div ref={carWrapperRef} style={{ left: "0%", transform: "translateX(0%)" }} className="absolute flex items-center h-full w-[var(--car-w)]">
                 <Car />
               </div>
             </div>
@@ -154,7 +155,7 @@ export default function Hero() {
               {/* Card 3: 23% (Sky Blue) */}
               <div
                 ref={c3Ref}
-                style={{ filter: "url(#sketchy-ui)" }}
+                style={{ filter: "url(#sketchy-ui)", opacity: 0, transform: "translateY(30px)" }}
                 className="w-56 sm:w-72 md:w-80 p-5 sm:p-6 rounded-sm bg-[#5ec4fc] shadow-sm mr-16 sm:mr-24 mb-8 -rotate-3 mt-2"
               >
                 <div className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight leading-none">
@@ -168,7 +169,7 @@ export default function Hero() {
               {/* Card 4: 40% (Vibrant Orange) */}
               <div
                 ref={c4Ref}
-                style={{ filter: "url(#sketchy-ui)" }}
+                style={{ filter: "url(#sketchy-ui)", opacity: 0, transform: "translateY(30px)" }}
                 className="w-56 sm:w-72 md:w-80 p-5 sm:p-6 rounded-sm bg-[#f97316] shadow-sm mt-8 rotate-1"
               >
                 <div className="text-5xl sm:text-6xl md:text-7xl font-black text-black tracking-tight leading-none">
