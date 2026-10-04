@@ -10,7 +10,9 @@ if (typeof window !== "undefined") {
 }
 
 export default function Car() {
-  const [processedSrc, setProcessedSrc] = useState<string>("/car.png");
+  // Use the GitHub Pages basePath so the image loads correctly on the live site
+  const basePath = "/itzfizz.kailash";
+  const [processedSrc, setProcessedSrc] = useState<string>(`${basePath}/car.png`);
   const smokeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -46,7 +48,7 @@ export default function Car() {
   // Client-side canvas check to cleanly remove white background of car.png if present
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/car.png";
+    img.src = `${basePath}/car.png`;
     img.crossOrigin = "anonymous";
     img.onload = () => {
       try {
@@ -81,7 +83,7 @@ export default function Car() {
           setProcessedSrc(canvas.toDataURL("image/png"));
         }
       } catch (e) {
-        setProcessedSrc("/car.png");
+        setProcessedSrc(`${basePath}/car.png`);
       }
     };
   }, []);
